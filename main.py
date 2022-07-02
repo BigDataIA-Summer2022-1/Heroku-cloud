@@ -242,7 +242,7 @@ def readImage_S3(ImageId: str):
     try:
         img_obj = client.get_object(Bucket = bucket_name, Key = object_key_img)
     except botocore.exceptions.ClientError:
-        return {"Error Messages: ": "No such key! Please enter a valid image name!"}
+        return {"Error Messages: ": "No such file name! Please enter a valid image name!"}
     body = img_obj['Body']
     img = Image.open(body)
     # create the numpy arrry of the image
@@ -274,7 +274,7 @@ def img_and_masks(ImageId: str):
     try:
         img_obj = client.get_object(Bucket = bucket_name, Key = object_key_img)
     except botocore.exceptions.ClientError:
-        return {"Error Messages: ":"No such key! Please enter a valid image name!"}
+        return {"Error Messages: ":"No such file name! Please enter a valid image name!"}
     body = img_obj['Body']
     img = Image.open(body)
     # create the numpy array of the image
@@ -351,7 +351,7 @@ def num_ship_in_image(ImageId: str):
     try:
         img_obj = client.get_object(Bucket = bucket_name, Key = object_key_img)
     except botocore.exceptions.ClientError:
-        return {"Error Messages: ": "No such key! Please enter a valid image name!"}
+        return {"Error Messages: ": "No such file name! Please enter a valid image name!"}
 
     client = boto3.client('s3', aws_access_key_id = aws_key_id,
             aws_secret_access_key = aws_key)
